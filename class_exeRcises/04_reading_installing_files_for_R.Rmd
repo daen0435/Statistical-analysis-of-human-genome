@@ -137,7 +137,7 @@ head(peaks_per_dbp)
 # Let's get more infomration about these peaks with table
 
 table(peaks_per_dbp$dbp)
-sumarty(peaks_per_dbp$dbp)
+summary(peaks_per_dbp$dbp)
 
 # Not very useful in this case because there is only one entry for each DBP
 
@@ -245,7 +245,7 @@ hist(peaks_per_dbp$num_peaks, breaks = 40)
 
 # MAKE SURE YOU ARE IN RIGHT WORKING DIR analysis/04_x
 
-pdf("figures/hist_of_peaks_per_dbp.pdf")
+pdf("analysis/figures/hist_of_peaks_per_dbp.pdf")
 hist(peaks_per_dbp$num_peaks, breaks = 40) 
 dev.off()
 
@@ -257,7 +257,7 @@ dev.off()
 
 # we will use base R to plot the num_peaks versus genome coverage
 
-pdf("figures/num_peaks_vs_coverage.pdf")
+pdf("analysis/figures/num_peaks_vs_coverage.pdf")
 
 plot(x = peaks_per_dbp$num_peaks, y = peaks_per_dbp$total_peak_length)
 
@@ -350,8 +350,8 @@ hist(peaks_per_dbp$total_peak_length)
 ```{r mutate if else statement}
 
 peaks_per_dbp <- peaks_per_dbp %>% 
-  mutate(genome_coverage_size = ifelse(total_peak_length < 1, "small",
-                          ifelse(total_peak_length < 30, "medium", "large")))
+  mutate(genome_coverage_size = ifelse(tpl_m < 1, "small",
+                          ifelse(tpl_m < 30, "medium", "large")))
 
 # that is really handy for changing stuff around in a data frame -- 
 # note that if else moves forward for greater that 30 and if true then returns large
