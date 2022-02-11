@@ -58,6 +58,7 @@ vignettes/*.pdf
 *.chain
 *.bed*
 data*
+Data*
 *.txt
 *.csv
 *.gz
