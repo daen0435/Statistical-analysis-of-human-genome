@@ -7,12 +7,12 @@
 #SBATCH --ntasks=1
 #SBATCH --mem=6gb
 #SBATCH --time=14:00:00
-#SBATCH --output=nextflow3.out
-#SBATCH --error=nextflow3.err
+#SBATCH --output=nextflow4.out
+#SBATCH --error=nextflow4.err
 pwd; hostname; date
 echo "Lets go"
 module load singularity/3.1.1
-nextflow run nf-core/chipseq -r 1.2.2 \
+nextflow run nf-core/chipseq -r 1.2.1 \
 -profile singularity \
 --single_end \
 --input design.csv \
