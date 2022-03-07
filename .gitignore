@@ -67,6 +67,7 @@ Data*
 .nextflow.log
 .nextflow.log.1
 *.log*
+*.bed
 
 
 
